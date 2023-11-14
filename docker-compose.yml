@@ -50,10 +50,10 @@ x-airflow-common:
     AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
     AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
   volumes:
-    - /opt/airflow/dags:/opt/airflow/dags
-    - /opt/airflow/logs:/opt/airflow/logs
-    - /opt/airflow/plugins:/opt/airflow/plugins
-    - /opt/airflow/data:/opt/airflow/data
+    - ${TEMP}/airflow/dags:/opt/airflow/dags
+    - ${TEMP}/airflow/logs:/opt/airflow/logs
+    - ${TEMP}/airflow/plugins:/opt/airflow/plugins
+    - ${TEMP}/airflow/data:/opt/airflow/data
   user: "${AIRFLOW_UID:-50000}:${AIRFLOW_GID:-50000}"
   depends_on:
     redis:
